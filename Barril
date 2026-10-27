@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Administração | Barril Distribuidora</title>
+
+  <style>
+
+    * { box-sizing: border-box; }
+
+    body {
+
+      margin: 0;
+
+      padding: 20px;
+
+      font-family: Arial, sans-serif;
+
+      background: #f4f1eb;
+
+      color: #29231d;
+
+    }
+
+    header {
+
+      background: #35251b;
+
+      color: white;
+
+      padding: 22px;
+
+      border-radius: 12px;
+
+      margin-bottom: 20px;
+
+    }
+
+    h1 { margin: 0 0 8px; font-size: 25px; }
+
+    p { line-height: 1.5; }
+
+    .aviso {
+
+      background: #fff0c7;
+
+      padding: 12px;
+
+      border-radius: 8px;
+
+      font-size: 14px;
+
+    }
+
+    section {
+
+      background: white;
+
+      padding: 18px;
+
+      border-radius: 12px;
+
+      margin-bottom: 18px;
+
+    }
+
+    label {
+
+      display: block;
+
+      margin-top: 13px;
+
+      font-weight: bold;
+
+      font-size: 14px;
+
+    }
+
+    input {
+
+      width: 100%;
+
+      padding: 12px;
+
+      margin-top: 6px;
+
+      border: 1px solid #ccc;
+
+      border-radius: 7px;
+
+      font-size: 16px;
+
+    }
+
+    button {
+
+      padding: 12px 15px;
+
+      margin-top: 15px;
+
+      border: 0;
+
+      border-radius: 7px;
+
+      background: #7b4325;
+
+      color: white;
+
+      font-weight: bold;
+
+      font-size: 15px;
+
+      cursor: pointer;
+
+    }
+
+    .produto {
+
+      border: 1px solid #ddd;
+
+      border-radius: 8px;
+
+      padding: 13px;
+
+      margin-top: 12px;
+
+    }
+
+    .produto button {
+
+      margin-right: 6px;
+
+    }
+
+    .remover { background: #a52a2a; }
+
+    a { color: #fff; }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+
+    <h1>🍻 Barril Distribuidora</h1>
+
+    <p>Painel de administração</p>
+
+    <a href="./">Voltar para o site</a>
+
+  </header>
+
+  <p class="aviso">
+
+    ⚠️ Painel em demonstração. Ainda não possui login seguro
+
+    nem sincronização com o catálogo público.
+
+  </p>
+
+  <section>
+
+    <h2>Cadastrar produto</h2>
+
+    <label for="nome">Nome do produto</label>
+
+    <input id="nome" placeholder="Ex.: Refrigerante 2 litros">
+
+    <label for="preco">Preço (R$)</label>
+
+    <input id="preco" type="number" min="0" step="0.01"
+
+      placeholder="Ex.: 8.50">
+
+    <label for="estoque">Quantidade em estoque</label>
+
+    <input id="estoque" type="number" min="0" step="1"
+
+      placeholder="Ex.: 20">
+
+    <label for="imagem">Link da imagem (opcional)</label>
+
+    <input id="imagem" type="url"
+
+      placeholder="https://exemplo.com/imagem.jpg">
+
+    <button onclick="salvarProduto()">Cadastrar produto</button>
+
+  </section>
+
+  <section>
+
+    <h2>Produtos cadastrados neste navegador</h2>
+
+    <div id="lista"></div>
+
+  </section>
+
+  <script>
+
+    let produtos = JSON.parse(
+
+      localStorage.getItem("barril_demo_produtos") || "[]"
+
+    );
+
+    function guardar() {
+
+      localStorage.setItem(
+
+        "barril_demo_produtos",
+
+        JSON.stringify(produtos)
+
+      );
+
+      mostrarProdutos();
+
+    }
+
+    function salvarProduto() {
+
+      const nome = document.getElementById("nome").value.trim();
+
+      const preco = Number(document.getElementById("preco").value);
+
+      const estoqueTexto = document.getElementById("estoque").value;
+
+      const estoque = Number(estoqueTexto);
+
+      const imagem = document.getElementById("imagem").value.trim();
+
+      if (!nome || document.getElementById("preco").value === ""
+
+          || !Number.isFinite(preco) || preco < 0
+
+          || estoqueTexto === "" || !Number.isInteger(estoque)
+
+          || estoque < 0) {
+
+        alert("Preencha o nome, o preço e o estoque corretamente.");
+
+        return;
+
+      }
+
+      produtos.push({
+
+        id: Date.now(),
+
+        nome,
+
+        preco,
+
+        estoque,
+
+        imagem
+
+      });
+
+      guardar();
+
+      document.getElementById("nome").value = "";
+
+      document.getElementById("preco").value = "";
+
+      document.getElementById("estoque").value = "";
+
+      document.getElementById("imagem").value = "";
+
+      alert("Produto adicionado nesta demonstração!");
+
+    }
+
+    function alterarProduto(id) {
+
+      const produto = produtos.find(p => p.id === id);
+
+      if (!produto) return;
+
+      const novoPreco = prompt("Novo preço (R$):", produto.preco);
+
+      if (novoPreco === null || novoPreco.trim() === "") return;
+
+      const preco = Number(novoPreco);
+
+      if (!Number.isFinite(preco) || preco < 0) {
+
+        alert("Digite um preço válido.");
+
+        return;
+
+      }
+
+      const novoEstoque = prompt("Nova quantidade em estoque:", produto.estoque);
+
+      if (novoEstoque === null || novoEstoque.trim() === "") return;
+
+      const estoque = Number(novoEstoque);
+
+      if (!Number.isInteger(estoque) || estoque < 0) {
+
+        alert("Digite uma quantidade inteira válida.");
+
+        return;
+
+      }
+
+      produto.preco = preco;
+
+      produto.estoque = estoque;
+
+      guardar();
+
+    }
+
+    function removerProduto(id) {
+
+      if (!confirm("Deseja remover este produto da demonstração?")) return;
+
+      produtos = produtos.filter(p => p.id !== id);
+
+      guardar();
+
+    }
+
+    function mostrarProdutos() {
+
+      const lista = document.getElementById("lista");
+
+      if (produtos.length === 0) {
+
+        lista.textContent = "Nenhum produto cadastrado ainda.";
+
+        return;
+
+      }
+
+      lista.replaceChildren();
+
+      produtos.forEach(produto => {
+
+        const card = document.createElement("div");
+
+        card.className = "produto";
+
+        const nome = document.createElement("strong");
+
+        nome.textContent = produto.nome;
+
+        const detalhes = document.createElement("p");
+
+        detalhes.textContent =
+
+          "Preço: R$ " + produto.preco.toFixed(2).replace(".", ",") +
+
+          " | Estoque: " + produto.estoque;
+
+        card.append(nome, detalhes);
+
+        if (produto.imagem) {
+
+          const link = document.createElement("a");
+
+          link.href = produto.imagem;
+
+          link.target = "_blank";
+
+          link.rel = "noopener noreferrer";
+
+          link.textContent = "Ver imagem";
+
+          card.append(link);
+
+        }
+
+        const editar = document.createElement("button");
+
+        editar.textContent = "Alterar preço/estoque";
+
+        editar.onclick = () => alterarProduto(produto.id);
+
+        const remover = document.createElement("button");
+
+        remover.textContent = "Remover";
+
+        remover.className = "remover";
+
+        remover.onclick = () => removerProduto(produto.id);
+
+        card.append(editar, remover);
+
+        lista.append(card);
+
+      });
+
+    }
+
+    mostrarProdutos();
+
+  </script>
+
+</body>
+
+</html>
