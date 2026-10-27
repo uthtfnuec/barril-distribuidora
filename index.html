@@ -10,109 +10,75 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="theme-color" content="#10251d">
-
 <title>Barril Distribuidora</title>
 
 <style>
 
-:root{--green:#173d2c;--green2:#24583e;--lime:#c8f169;--cream:#f7f5ef;--ink:#17231b;--muted:#667268;--line:#e2e6df}
+:root {
+
+  --bg:#1b120e; --card:#2c1d15; --brown:#543522;
+
+  --gold:#d8ad69; --text:#fff4e7; --muted:#c6ad96;
+
+}
 
 *{box-sizing:border-box}
 
-body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
 
-header{background:linear-gradient(135deg,#10251d,#24583e);color:white;padding:22px 18px 28px;border-radius:0 0 26px 26px}
+header{background:linear-gradient(135deg,#25160f,#593820);padding:20px;text-align:center;border-bottom:2px solid var(--gold)}
 
-.top{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:30px;font-weight:900;letter-spacing:4px;color:var(--gold);cursor:pointer}
 
-.brand{display:flex;gap:11px;align-items:center}
+header p{font-size:12px;letter-spacing:2px;color:#e7cba8}
 
-.logo{width:46px;height:46px;border-radius:14px;background:var(--lime);color:var(--green);display:grid;place-items:center;font-size:25px;font-weight:900}
+main{width:min(1050px,92%);margin:22px auto}
 
-.brand h1{font-size:19px;line-height:1.1;margin:0}
+.hero{padding:28px 20px;border-radius:16px;background:linear-gradient(135deg,#593820,#291910);border:1px solid #795538}
 
-.brand small{display:block;color:#d2e1d6;font-size:12px;margin-top:5px}
+h1,h2{color:var(--gold)}
 
-.cartbtn{border:1px solid #73907c;background:#ffffff12;color:white;border-radius:14px;padding:10px 13px;font-weight:700}
+.hero h1{font-size:30px;margin-top:0}
 
-.hero{max-width:1000px;margin:30px auto 0}
+button{padding:12px 15px;border:0;border-radius:8px;background:var(--gold);color:#24160d;font-weight:bold;cursor:pointer}
 
-.eyebrow{color:var(--lime);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+button:disabled{opacity:.45;cursor:not-allowed}
 
-.hero h2{font-size:clamp(28px,7vw,44px);line-height:1.05;max-width:600px;margin:10px 0}
+.secondary{background:var(--brown);color:white;border:1px solid #8b6545}
 
-.hero p{color:#e0e9e2;max-width:520px;line-height:1.5;margin:0}
+.danger{background:#8c3730;color:white}
 
-main{max-width:1000px;margin:0 auto;padding:20px 16px 50px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:13px}
 
-.notice{background:#edf4df;border:1px solid #d8e7c3;padding:12px 14px;border-radius:14px;font-size:13px;line-height:1.4;margin-bottom:20px}
+.card,.panel{background:var(--card);border:1px solid #62452f;border-radius:12px;padding:15px;margin-bottom:12px}
 
-.search{width:100%;padding:14px 15px;border:1px solid var(--line);border-radius:14px;font-size:16px;background:white;margin-bottom:16px}
+.product-icon{height:95px;border-radius:8px;background:#40291b;display:grid;place-items:center;font-size:46px}
 
-.categories{display:flex;gap:8px;overflow:auto;padding-bottom:8px;margin-bottom:18px}
+.price{color:var(--gold);font-size:18px;font-weight:bold}
 
-.chip{white-space:nowrap;border:1px solid var(--line);background:white;color:var(--ink);border-radius:999px;padding:9px 13px;font-weight:650}
+small,.muted{color:var(--muted)}
 
-.chip.active{background:var(--green);color:white;border-color:var(--green)}
+input,select,textarea{width:100%;padding:12px;margin:6px 0 13px;border-radius:7px;border:1px solid #76563b;background:#1b120e;color:white;font:inherit}
 
-.sectionhead{display:flex;align-items:end;justify-content:space-between;margin:8px 0 14px}
+label{font-size:14px;color:#e9d5bf}
 
-.sectionhead h3{font-size:22px;margin:0}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 
-.sectionhead span{font-size:12px;color:var(--muted)}
+.row button{margin-top:5px}
 
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.section{margin-top:25px}
 
-.product{background:white;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.hidden{display:none!important}
 
-.prodimg{height:120px;display:grid;place-items:center;background:linear-gradient(135deg,#e9efdf,#f8f7f0);font-size:48px}
+.total{font-size:21px;color:var(--gold);font-weight:bold}
 
-.prodinfo{padding:12px;display:flex;flex-direction:column;gap:7px;flex:1}
+.cart-line{padding:12px 0;border-bottom:1px solid #62452f}
 
-.category{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);font-weight:800}
+footer{text-align:center;color:var(--muted);padding:25px;font-size:12px}
 
-.product h4{font-size:15px;margin:0;line-height:1.25}
+.notice{font-size:13px;color:#f1cc8e;line-height:1.5}
 
-.price{font-size:18px;font-weight:850;color:var(--green)}
-
-.unit{font-size:11px;color:var(--muted);font-weight:500}
-
-.add{border:0;background:var(--green);color:white;border-radius:11px;padding:11px;font-weight:800;margin-top:auto}
-
-.empty{padding:28px;text-align:center;color:var(--muted);background:white;border-radius:16px;grid-column:1/-1}
-
-footer{padding:24px 16px;background:#10251d;color:#d6e2d8;text-align:center;font-size:12px;line-height:1.7}
-
-.overlay{display:none;position:fixed;inset:0;background:#0008;z-index:10;align-items:end;justify-content:center}
-
-.overlay.open{display:flex}
-
-.sheet{background:white;width:100%;max-width:620px;max-height:88vh;overflow:auto;border-radius:24px 24px 0 0;padding:20px}
-
-.sheethead{display:flex;justify-content:space-between;align-items:center}
-
-.sheet h3{margin:0;font-size:22px}
-
-.close{border:0;background:#eef1eb;border-radius:10px;padding:8px 12px;font-size:18px}
-
-.cartline{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}
-
-.qty{display:flex;align-items:center;gap:8px}
-
-.qty button{border:0;background:#edf2e8;border-radius:8px;width:28px;height:28px;font-size:18px}
-
-.total{display:flex;justify-content:space-between;font-size:20px;font-weight:850;padding:18px 0}
-
-.fields{display:grid;gap:10px}
-
-.fields input,.fields select,.fields textarea{width:100%;padding:12px;border:1px solid #d7ded4;border-radius:11px;font:inherit;background:white}
-
-.checkout{width:100%;border:0;background:#16834b;color:white;border-radius:13px;padding:14px;font-weight:850;font-size:16px;margin-top:12px}
-
-.smallnote{font-size:11px;color:var(--muted);line-height:1.4;margin-top:10px}
-
-@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.prodimg{height:150px}.hero{padding:0 2px}.overlay{align-items:center}.sheet{border-radius:24px}}
+@media(min-width:700px){.columns{display:grid;grid-template-columns:1fr 1fr;gap:18px}.hero h1{font-size:38px}}
 
 </style>
 
@@ -122,215 +88,699 @@ footer{padding:24px 16px;background:#10251d;color:#d6e2d8;text-align:center;font
 
 <header>
 
- <div class="top">
+  <div class="logo" id="logo" title="Barril Distribuidora">BARRIL</div>
 
-  <div class="brand"><div class="logo">B</div><div><h1>Barril Distribuidora</h1><small>Bebidas, gelo e muito mais</small></div></div>
-
-  <button class="cartbtn" onclick="openCart()">🛒 Pedido <span id="cartcount">0</span></button>
-
- </div>
-
- <div class="hero"><div class="eyebrow">Praticidade para sua comemoração</div><h2>Seu pedido, do seu jeito.</h2><p>Escolha seus produtos, confira o pedido e envie tudo para a nossa equipe pelo WhatsApp.</p></div>
+  <p>DISTRIBUIDORA · BEBIDAS PARA TODOS OS MOMENTOS</p>
 
 </header>
 
 <main>
 
- <div class="notice">ℹ️ <strong>Catálogo demonstrativo:</strong> os produtos e preços abaixo são exemplos. Atualize-os antes de divulgar a loja.</div>
+  <section class="hero">
 
- <input class="search" id="search" placeholder="🔎 Buscar produto..." oninput="renderProducts()">
+    <h1>Sua bebida, do seu jeito. 🍻</h1>
 
- <div class="categories" id="categories"></div>
+    <p>Escolha seus produtos, monte seu pedido e informe onde deseja receber.</p>
 
- <div class="sectionhead"><h3>Produtos</h3><span id="shown"></span></div>
+    <button onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">VER PRODUTOS</button>
 
- <div class="grid" id="products"></div>
+  </section>
+
+  <section id="catalogo" class="section">
+
+    <h2>🍺 Nossos produtos</h2>
+
+    <input id="busca" placeholder="Buscar bebida..." oninput="renderProducts()">
+
+    <div id="products" class="products"></div>
+
+  </section>
+
+  <section class="section columns">
+
+    <div class="panel">
+
+      <h2>🛒 Seu carrinho</h2>
+
+      <div id="cart"></div>
+
+      <p>Total: <span id="total" class="total">R$ 0,00</span></p>
+
+      <button onclick="showCheckout()">FINALIZAR PEDIDO</button>
+
+    </div>
+
+    <div id="checkout" class="panel hidden">
+
+      <h2>📦 Entrega e pagamento</h2>
+
+      <form id="orderForm">
+
+        <label>Nome completo</label>
+
+        <input name="nome" required autocomplete="name" placeholder="Seu nome">
+
+        <label>Telefone com DDD</label>
+
+        <input name="telefone" required type="tel" autocomplete="tel" placeholder="(63) 99999-9999">
+
+        <label>Rua e endereço</label>
+
+        <input name="rua" required autocomplete="street-address" placeholder="Rua, avenida...">
+
+        <div class="row">
+
+          <div style="flex:1;min-width:110px">
+
+            <label>Número</label>
+
+            <input name="numero" required placeholder="Nº">
+
+          </div>
+
+          <div style="flex:2;min-width:140px">
+
+            <label>Bairro</label>
+
+            <input name="bairro" required placeholder="Seu bairro">
+
+          </div>
+
+        </div>
+
+        <label>Complemento (opcional)</label>
+
+        <input name="complemento" placeholder="Casa, referência...">
+
+        <label>Forma de pagamento</label>
+
+        <select name="pagamento" required>
+
+          <option value="">Selecione</option>
+
+          <option>Pix</option>
+
+          <option>Cartão de débito</option>
+
+          <option>Cartão de crédito</option>
+
+          <option>Dinheiro</option>
+
+        </select>
+
+        <label>Observações</label>
+
+        <textarea name="observacao" rows="3" placeholder="Alguma informação para a entrega?"></textarea>
+
+        <p class="notice">A forma de pagamento será confirmada com a distribuidora. Escolher Pix ou cartão aqui não realiza a cobrança automaticamente.</p>
+
+        <button type="submit">ENVIAR PEDIDO PELO WHATSAPP</button>
+
+        <button type="button" class="secondary" onclick="hideCheckout()">VOLTAR</button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <section id="login" class="panel section hidden">
+
+    <h2>🔐 Acesso administrativo</h2>
+
+    <form id="loginForm">
+
+      <label>E-mail</label>
+
+      <input name="email" type="email" required autocomplete="username">
+
+      <label>Senha</label>
+
+      <input name="senha" type="password" required autocomplete="current-password">
+
+      <button type="submit">ENTRAR</button>
+
+      <button type="button" class="secondary" onclick="closeLogin()">CANCELAR</button>
+
+    </form>
+
+    <p class="notice">Acesso de demonstração. Antes de publicar, substitua por autenticação segura.</p>
+
+  </section>
+
+  <section id="admin" class="section hidden">
+
+    <div class="panel">
+
+      <div class="row" style="justify-content:space-between">
+
+        <h2>⚙️ Painel da Barril</h2>
+
+        <button class="secondary" onclick="logout()">SAIR</button>
+
+      </div>
+
+      <p class="muted">Cadastre produtos, altere preços e controle a disponibilidade.</p>
+
+      <h3 id="formTitle">Adicionar produto</h3>
+
+      <form id="productForm">
+
+        <input name="nome" required placeholder="Nome do produto">
+
+        <div class="row">
+
+          <div style="flex:1;min-width:120px">
+
+            <label>Preço (R$)</label>
+
+            <input name="preco" type="number" min="0.01" step="0.01" required placeholder="0,00">
+
+          </div>
+
+          <div style="flex:1;min-width:120px">
+
+            <label>Estoque</label>
+
+            <input name="estoque" type="number" min="0" step="1" required placeholder="Quantidade">
+
+          </div>
+
+        </div>
+
+        <label>Emoji do produto</label>
+
+        <input name="icone" maxlength="8" placeholder="🍺">
+
+        <div class="row">
+
+          <button type="submit">SALVAR PRODUTO</button>
+
+          <button type="button" class="secondary" onclick="resetProductForm()">CANCELAR EDIÇÃO</button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="panel">
+
+      <h2>📋 Gerenciar produtos</h2>
+
+      <div id="adminProducts"></div>
+
+    </div>
+
+    <div class="panel">
+
+      <h2>🧾 Pedidos deste dispositivo</h2>
+
+      <p class="notice">Esta lista é apenas local. Para receber e consultar pedidos de todos os clientes, será necessário conectar um banco de dados.</p>
+
+      <div id="adminOrders"></div>
+
+    </div>
+
+  </section>
 
 </main>
 
-<footer><strong>Barril Distribuidora</strong><br>Confira disponibilidade, entrega e valores finais com nossa equipe.<br>© <span id="year"></span> Barril Distribuidora</footer>
-
-<div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()">
-
- <section class="sheet">
-
-  <div class="sheethead"><h3>Seu pedido</h3><button class="close" onclick="closeCart()">✕</button></div>
-
-  <div id="cartlines"></div>
-
-  <div class="total"><span>Total estimado</span><span id="total">R$ 0,00</span></div>
-
-  <div class="fields">
-
-   <input id="customer" placeholder="Seu nome" autocomplete="name">
-
-   <select id="delivery"><option value="">Entrega ou retirada?</option><option>Entrega</option><option>Retirada no local</option></select>
-
-   <input id="address" placeholder="Endereço para entrega (se necessário)">
-
-   <label for="payment"><strong>Forma de pagamento</strong></label>
-
-   <select id="payment">
-
-    <option value="">Selecione o pagamento</option>
-
-    <option value="Pix">Pix</option>
-
-    <option value="Dinheiro">Dinheiro</option>
-
-    <option value="Cartão de débito">Cartão de débito</option>
-
-    <option value="Cartão de crédito">Cartão de crédito</option>
-
-   </select>
-
-   <textarea id="notes" rows="2" placeholder="Observações (opcional)"></textarea>
-
-  </div>
-
-  <button class="checkout" onclick="sendWhatsApp()">Finalizar pelo WhatsApp</button>
-
-  <div class="smallnote">O WhatsApp abrirá com o pedido preenchido. Você ainda precisará tocar em Enviar. Confirme com a equipe a disponibilidade da forma de pagamento.</div>
-
- </section>
-
-</div>
+<footer>BARRIL DISTRIBUIDORA · Obrigado pela preferência!</footer>
 
 <script>
 
-const WHATSAPP_NUMBER = "5563999120654";
+/*
 
-const categories=["Todos","Refrigerantes","Água","Energéticos","Gelo","Carvão","Petiscos","Outros"];
+  CONFIGURAÇÃO:
 
-const productsData=[
+  1. Coloque seu número de WhatsApp no formato 55 + DDD + número.
 
- {id:1,name:"Refrigerante 2 L",category:"Refrigerantes",price:8,unit:"unidade",emoji:"🥤"},
+  2. O login abaixo é SOMENTE para testar o layout.
 
- {id:2,name:"Água mineral 1,5 L",category:"Água",price:3.5,unit:"unidade",emoji:"💧"},
+  3. Não publique senhas reais neste arquivo.
 
- {id:3,name:"Energético 473 ml",category:"Energéticos",price:10,unit:"unidade",emoji:"⚡"},
+*/
 
- {id:4,name:"Saco de gelo",category:"Gelo",price:10,unit:"saco",emoji:"🧊"},
+const WHATSAPP = "5563999999999";
 
- {id:5,name:"Saco de carvão",category:"Carvão",price:18,unit:"saco",emoji:"🔥"},
+const DEMO_EMAIL = "admin@barril.com";
 
- {id:6,name:"Salgadinho",category:"Petiscos",price:6,unit:"pacote",emoji:"🥨"},
+const DEMO_PASSWORD = "trocar123";
 
- {id:7,name:"Amendoim",category:"Petiscos",price:5,unit:"pacote",emoji:"🥜"},
+const initialProducts = [
 
- {id:8,name:"Copo descartável",category:"Outros",price:5,unit:"pacote",emoji:"🥤"}
+  {id:1,nome:"Cerveja",preco:5,estoque:24,icone:"🍺"},
+
+  {id:2,nome:"Refrigerante",preco:7,estoque:20,icone:"🥤"},
+
+  {id:3,nome:"Energético",preco:10,estoque:12,icone:"⚡"},
+
+  {id:4,nome:"Água",preco:3,estoque:30,icone:"💧"}
 
 ];
 
-let selected="Todos",cart={};
+let products = read("barril_products", initialProducts);
 
-const money=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+let cart = {};
 
-function renderCategories(){
+let orders = read("barril_orders", []);
 
- document.getElementById("categories").innerHTML=categories.map(c=>
+let editId = null;
 
-  `<button class="chip ${c===selected?"active":""}" onclick="selectCategory(${JSON.stringify(c)})">${c}</button>`
+let logoTaps = 0;
 
- ).join("");
+let tapTimer;
 
-}
+let loggedIn = false;
 
-function selectCategory(category){
+function read(key, fallback) {
 
- selected=category;
+  try {
 
- renderCategories();
+    const data = localStorage.getItem(key);
 
- renderProducts();
+    return data ? JSON.parse(data) : fallback.map ? fallback.map(x=>({...x})) : fallback;
 
-}
-
-function renderProducts(){
-
- const q=document.getElementById("search").value.trim().toLocaleLowerCase("pt-BR");
-
- const arr=productsData.filter(p=>(selected==="Todos"||p.category===selected)&&p.name.toLocaleLowerCase("pt-BR").includes(q));
-
- document.getElementById("shown").textContent=arr.length+" itens";
-
- document.getElementById("products").innerHTML=arr.length?arr.map(p=>
-
-  `<article class="product"><div class="prodimg">${p.emoji}</div><div class="prodinfo"><div class="category">${p.category}</div><h4>${p.name}</h4><div class="price">${money(p.price)} <span class="unit">/ ${p.unit}</span></div><button class="add" onclick="add(${p.id})">+ Adicionar</button></div></article>`
-
- ).join(""):`<div class="empty">Nenhum produto encontrado.</div>`;
+  } catch { return fallback; }
 
 }
 
-function add(id){cart[id]=(cart[id]||0)+1;updateCount()}
+function save() {
 
-function updateCount(){document.getElementById("cartcount").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+  localStorage.setItem("barril_products", JSON.stringify(products));
 
-function openCart(){document.getElementById("overlay").classList.add("open");renderCart()}
-
-function closeCart(){document.getElementById("overlay").classList.remove("open")}
-
-function renderCart(){
-
- const items=productsData.filter(p=>cart[p.id]);
-
- document.getElementById("cartlines").innerHTML=items.length?items.map(p=>
-
-  `<div class="cartline"><div><strong>${p.name}</strong><div>${money(p.price)} cada</div></div><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button><strong>${cart[p.id]}</strong><button onclick="changeQty(${p.id},1)">+</button></div></div>`
-
- ).join(""):`<div class="empty">Seu carrinho está vazio. Adicione produtos para continuar.</div>`;
-
- document.getElementById("total").textContent=money(items.reduce((s,p)=>s+p.price*cart[p.id],0));
+  localStorage.setItem("barril_orders", JSON.stringify(orders));
 
 }
 
-function changeQty(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];updateCount();renderCart()}
+function money(value) {
 
-function sendWhatsApp(){
-
- const items=productsData.filter(p=>cart[p.id]);
-
- if(!items.length){alert("Adicione pelo menos um produto ao pedido.");return}
-
- const name=document.getElementById("customer").value.trim();
-
- const delivery=document.getElementById("delivery").value;
-
- const payment=document.getElementById("payment").value;
-
- const address=document.getElementById("address").value.trim();
-
- const notes=document.getElementById("notes").value.trim();
-
- if(!name||!delivery||!payment){alert("Informe seu nome, escolha entrega ou retirada e selecione a forma de pagamento.");return}
-
- const total=items.reduce((s,p)=>s+p.price*cart[p.id],0);
-
- const message=[
-
-  "*Pedido — Barril Distribuidora*","",
-
-  ...items.map(p=>`• ${cart[p.id]}x ${p.name} — ${money(p.price*cart[p.id])}`),
-
-  "",`*Total estimado: ${money(total)}*`,`Cliente: ${name}`,
-
-  `Opção: ${delivery}`,`Pagamento: ${payment}`
-
- ];
-
- if(delivery==="Entrega")message.push(`Endereço: ${address||"A combinar"}`);
-
- if(notes)message.push(`Observações: ${notes}`);
-
- window.location.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message.join("\n"))}`;
+  return Number(value).toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
 
 }
 
-document.getElementById("year").textContent=new Date().getFullYear();
+function escapeHTML(value) {
 
-renderCategories();
+  return String(value).replace(/[&<>"']/g, c => ({
+
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+
+  })[c]);
+
+}
+
+function renderProducts() {
+
+  const q = document.getElementById("busca").value.toLowerCase();
+
+  document.getElementById("products").innerHTML = products
+
+    .filter(p=>p.nome.toLowerCase().includes(q))
+
+    .map(p=>`<article class="card">
+
+      <div class="product-icon">${escapeHTML(p.icone||"🍺")}</div>
+
+      <h3>${escapeHTML(p.nome)}</h3>
+
+      <p class="price">${money(p.preco)}</p>
+
+      <small>${p.estoque>0 ? "Disponíveis: "+p.estoque : "Indisponível"}</small>
+
+      <button ${p.estoque<=0?"disabled":""} onclick="addCart(${p.id})">ADICIONAR</button>
+
+    </article>`).join("") || "<p>Nenhum produto encontrado.</p>";
+
+}
+
+function addCart(id) {
+
+  const p = products.find(x=>x.id===id);
+
+  if (!p || (cart[id]||0)>=p.estoque) return alert("Quantidade indisponível.");
+
+  cart[id]=(cart[id]||0)+1;
+
+  renderCart();
+
+}
+
+function changeQty(id,delta) {
+
+  const p=products.find(x=>x.id===id);
+
+  const next=(cart[id]||0)+delta;
+
+  if(next<=0) delete cart[id];
+
+  else if(next<=p.estoque) cart[id]=next;
+
+  else alert("Não há estoque suficiente.");
+
+  renderCart();
+
+}
+
+function renderCart() {
+
+  const entries=Object.entries(cart);
+
+  document.getElementById("cart").innerHTML=entries.length ? entries.map(([id,qty])=>{
+
+    const p=products.find(x=>x.id===Number(id));
+
+    return `<div class="cart-line">
+
+      <b>${escapeHTML(p.nome)}</b> — ${money(p.preco*qty)}
+
+      <div class="row">
+
+        <button class="secondary" onclick="changeQty(${p.id},-1)">−</button>
+
+        <span>${qty}</span>
+
+        <button class="secondary" onclick="changeQty(${p.id},1)">+</button>
+
+        <button class="danger" onclick="delete cart[${p.id}];renderCart()">Remover</button>
+
+      </div></div>`;
+
+  }).join("") : "<p class='muted'>Seu carrinho está vazio.</p>";
+
+  document.getElementById("total").textContent=money(cartTotal());
+
+}
+
+function cartTotal() {
+
+  return Object.entries(cart).reduce((sum,[id,qty])=>{
+
+    const p=products.find(x=>x.id===Number(id));
+
+    return sum+(p?p.preco*qty:0);
+
+  },0);
+
+}
+
+function showCheckout() {
+
+  if(!Object.keys(cart).length) return alert("Adicione pelo menos um produto.");
+
+  document.getElementById("checkout").classList.remove("hidden");
+
+  document.getElementById("checkout").scrollIntoView({behavior:"smooth"});
+
+}
+
+function hideCheckout() {
+
+  document.getElementById("checkout").classList.add("hidden");
+
+}
+
+document.getElementById("orderForm").addEventListener("submit",e=>{
+
+  e.preventDefault();
+
+  if(!Object.keys(cart).length) return alert("Seu carrinho está vazio.");
+
+  if(!/^\d{12,13}$/.test(WHATSAPP)) {
+
+    return alert("Configure o número de WhatsApp da Barril no código antes de enviar pedidos.");
+
+  }
+
+  const f=new FormData(e.target);
+
+  const items=Object.entries(cart).map(([id,qty])=>{
+
+    const p=products.find(x=>x.id===Number(id));
+
+    return `${qty}x ${p.nome} — ${money(p.preco*qty)}`;
+
+  });
+
+  const order={
+
+    id:Date.now(),
+
+    data:new Date().toLocaleString("pt-BR"),
+
+    cliente:f.get("nome"),
+
+    total:cartTotal(),
+
+    itens:items,
+
+    pagamento:f.get("pagamento"),
+
+    status:"Novo"
+
+  };
+
+  orders.unshift(order);
+
+  save();
+
+  const msg=[
+
+    "*NOVO PEDIDO — BARRIL DISTRIBUIDORA*",
+
+    "",
+
+    `*Nome:* ${f.get("nome")}`,
+
+    `*Telefone:* ${f.get("telefone")}`,
+
+    `*Endereço:* ${f.get("rua")}, ${f.get("numero")} — ${f.get("bairro")}`,
+
+    `*Complemento:* ${f.get("complemento")||"Não informado"}`,
+
+    "",
+
+    "*Produtos:*",...items,
+
+    `*TOTAL: ${money(order.total)}*`,
+
+    `*Pagamento escolhido:* ${f.get("pagamento")}`,
+
+    `*Observações:* ${f.get("observacao")||"Nenhuma"}`,
+
+    "",
+
+    "Aguardando confirmação do pedido."
+
+  ].join("\n");
+
+  window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank");
+
+  cart={};
+
+  renderCart();
+
+  e.target.reset();
+
+  hideCheckout();
+
+  renderAdmin();
+
+});
+
+document.getElementById("logo").addEventListener("click",()=>{
+
+  logoTaps++;
+
+  clearTimeout(tapTimer);
+
+  tapTimer=setTimeout(()=>logoTaps=0,1800);
+
+  if(logoTaps>=5) {
+
+    logoTaps=0;
+
+    if(loggedIn) openAdmin();
+
+    else {
+
+      document.getElementById("login").classList.remove("hidden");
+
+      document.getElementById("login").scrollIntoView({behavior:"smooth"});
+
+    }
+
+  }
+
+});
+
+function closeLogin(){document.getElementById("login").classList.add("hidden")}
+
+document.getElementById("loginForm").addEventListener("submit",e=>{
+
+  e.preventDefault();
+
+  const f=new FormData(e.target);
+
+  if(f.get("email")===DEMO_EMAIL && f.get("senha")===DEMO_PASSWORD) {
+
+    loggedIn=true;
+
+    closeLogin();
+
+    openAdmin();
+
+    e.target.reset();
+
+  } else alert("Dados incorretos. Confira o login de demonstração no código.");
+
+});
+
+function openAdmin(){
+
+  document.getElementById("admin").classList.remove("hidden");
+
+  renderAdmin();
+
+  document.getElementById("admin").scrollIntoView({behavior:"smooth"});
+
+}
+
+function logout(){
+
+  loggedIn=false;
+
+  document.getElementById("admin").classList.add("hidden");
+
+}
+
+function renderAdmin(){
+
+  if(!loggedIn)return;
+
+  document.getElementById("adminProducts").innerHTML=products.map(p=>
+
+    `<div class="cart-line"><b>${escapeHTML(p.icone)} ${escapeHTML(p.nome)}</b>
+
+    <p>${money(p.preco)} · Estoque: ${p.estoque}</p>
+
+    <div class="row">
+
+    <button onclick="editProduct(${p.id})">Editar</button>
+
+    <button class="danger" onclick="removeProduct(${p.id})">Excluir</button>
+
+    </div></div>`).join("")||"<p>Nenhum produto cadastrado.</p>";
+
+  document.getElementById("adminOrders").innerHTML=orders.map(o=>
+
+    `<div class="cart-line"><b>Pedido ${o.id}</b> · ${escapeHTML(o.cliente)}
+
+    <p>${escapeHTML(o.data)} · ${money(o.total)}</p>
+
+    <small>${o.itens.map(escapeHTML).join("<br>")}</small></div>`
+
+  ).join("")||"<p class='muted'>Nenhum pedido neste dispositivo.</p>";
+
+}
+
+document.getElementById("productForm").addEventListener("submit",e=>{
+
+  e.preventDefault();
+
+  if(!loggedIn)return;
+
+  const f=new FormData(e.target);
+
+  const nome=String(f.get("nome")).trim();
+
+  const preco=Number(f.get("preco"));
+
+  const estoque=Number(f.get("estoque"));
+
+  const icone=String(f.get("icone")||"🍺").trim();
+
+  if(!nome||!Number.isFinite(preco)||preco<=0||!Number.isInteger(estoque)||estoque<0)
+
+    return alert("Confira nome, preço e estoque.");
+
+  if(editId!==null) {
+
+    products=products.map(p=>p.id===editId?{...p,nome,preco,estoque,icone}:p);
+
+  } else {
+
+    products.push({id:Date.now(),nome,preco,estoque,icone});
+
+  }
+
+  save();
+
+  resetProductForm();
+
+  renderProducts();
+
+  renderAdmin();
+
+});
+
+function editProduct(id){
+
+  const p=products.find(x=>x.id===id);
+
+  if(!p)return;
+
+  editId=id;
+
+  const f=document.getElementById("productForm");
+
+  f.elements.nome.value=p.nome;
+
+  f.elements.preco.value=p.preco;
+
+  f.elements.estoque.value=p.estoque;
+
+  f.elements.icone.value=p.icone;
+
+  document.getElementById("formTitle").textContent="Editar produto";
+
+  f.scrollIntoView({behavior:"smooth"});
+
+}
+
+function resetProductForm(){
+
+  editId=null;
+
+  document.getElementById("productForm").reset();
+
+  document.getElementById("formTitle").textContent="Adicionar produto";
+
+}
+
+function removeProduct(id){
+
+  if(!loggedIn)return;
+
+  if(!confirm("Deseja excluir este produto?"))return;
+
+  products=products.filter(p=>p.id!==id);
+
+  delete cart[id];
+
+  save();
+
+  renderProducts();
+
+  renderCart();
+
+  renderAdmin();
+
+}
 
 renderProducts();
+
+renderCart();
 
 </script>
 
