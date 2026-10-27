@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10251d">
+<title>Barril Distribuidora</title>
+<style>
+:root{--green:#173d2c;--green2:#24583e;--lime:#c8f169;--cream:#f7f5ef;--ink:#17231b;--muted:#667268;--line:#e2e6df}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:linear-gradient(135deg,#10251d,#24583e);color:white;padding:22px 18px 28px;border-radius:0 0 26px 26px}
+.top{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;gap:11px;align-items:center}.logo{width:46px;height:46px;border-radius:14px;background:var(--lime);color:var(--green);display:grid;place-items:center;font-size:25px;font-weight:900}
+.brand h1{font-size:19px;line-height:1.1;margin:0}.brand small{display:block;color:#d2e1d6;font-size:12px;margin-top:5px}
+.cartbtn{border:1px solid #73907c;background:#ffffff12;color:white;border-radius:14px;padding:10px 13px;font-weight:700}
+.hero{max-width:1000px;margin:30px auto 0}.eyebrow{color:var(--lime);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}.hero h2{font-size:clamp(28px,7vw,44px);line-height:1.05;max-width:600px;margin:10px 0}.hero p{color:#e0e9e2;max-width:520px;line-height:1.5;margin:0}
+main{max-width:1000px;margin:0 auto;padding:20px 16px 50px}.notice{background:#edf4df;border:1px solid #d8e7c3;padding:12px 14px;border-radius:14px;font-size:13px;line-height:1.4;margin-bottom:20px}
+.search{width:100%;padding:14px 15px;border:1px solid var(--line);border-radius:14px;font-size:16px;background:white;margin-bottom:16px}
+.categories{display:flex;gap:8px;overflow:auto;padding-bottom:8px;margin-bottom:18px}.chip{white-space:nowrap;border:1px solid var(--line);background:white;color:var(--ink);border-radius:999px;padding:9px 13px;font-weight:650}.chip.active{background:var(--green);color:white;border-color:var(--green)}
+.sectionhead{display:flex;align-items:end;justify-content:space-between;margin:8px 0 14px}.sectionhead h3{font-size:22px;margin:0}.sectionhead span{font-size:12px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.product{background:white;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;min-width:0}.prodimg{height:120px;display:grid;place-items:center;background:linear-gradient(135deg,#e9efdf,#f8f7f0);font-size:48px}.prodinfo{padding:12px;display:flex;flex-direction:column;gap:7px;flex:1}.category{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);font-weight:800}.product h4{font-size:15px;margin:0;line-height:1.25}.price{font-size:18px;font-weight:850;color:var(--green)}.unit{font-size:11px;color:var(--muted);font-weight:500}.add{border:0;background:var(--green);color:white;border-radius:11px;padding:11px;font-weight:800;margin-top:auto}.add:active{transform:scale(.98)}
+.empty{padding:28px;text-align:center;color:var(--muted);background:white;border-radius:16px;grid-column:1/-1}
+footer{padding:24px 16px;background:#10251d;color:#d6e2d8;text-align:center;font-size:12px;line-height:1.7}
+.overlay{display:none;position:fixed;inset:0;background:#0008;z-index:10;align-items:end;justify-content:center}.overlay.open{display:flex}.sheet{background:white;width:100%;max-width:620px;max-height:88vh;overflow:auto;border-radius:24px 24px 0 0;padding:20px}.sheethead{display:flex;justify-content:space-between;align-items:center}.sheet h3{margin:0;font-size:22px}.close{border:0;background:#eef1eb;border-radius:10px;padding:8px 12px;font-size:18px}.cartline{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}.qty{display:flex;align-items:center;gap:8px}.qty button{border:0;background:#edf2e8;border-radius:8px;width:28px;height:28px;font-size:18px}.total{display:flex;justify-content:space-between;font-size:20px;font-weight:850;padding:18px 0}.fields{display:grid;gap:10px}.fields input,.fields select,.fields textarea{width:100%;padding:12px;border:1px solid #d7ded4;border-radius:11px;font:inherit;background:white}.checkout{width:100%;border:0;background:#16834b;color:white;border-radius:13px;padding:14px;font-weight:850;font-size:16px;margin-top:12px}.smallnote{font-size:11px;color:var(--muted);line-height:1.4;margin-top:10px}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.prodimg{height:150px}.hero{padding:0 2px}.overlay{align-items:center}.sheet{border-radius:24px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="top">
+  <div class="brand"><div class="logo">B</div><div><h1>Barril Distribuidora</h1><small>Bebidas, gelo e muito mais</small></div></div>
+  <button class="cartbtn" onclick="openCart()">🛒 Pedido <span id="cartcount">0</span></button>
+ </div>
+ <div class="hero"><div class="eyebrow">Praticidade para sua comemoração</div><h2>Seu pedido, do seu jeito.</h2><p>Escolha seus produtos, confira o pedido e envie tudo para a nossa equipe pelo WhatsApp.</p></div>
+</header>
+<main>
+ <div class="notice">ℹ️ <strong>Catálogo demonstrativo:</strong> os produtos e preços abaixo são exemplos. Atualize-os antes de divulgar a loja.</div>
+ <input class="search" id="search" placeholder="🔎  Buscar produto..." oninput="renderProducts()">
+ <div class="categories" id="categories"></div>
+ <div class="sectionhead"><h3>Produtos</h3><span id="shown"></span></div>
+ <div class="grid" id="products"></div>
+</main>
+<footer><strong>Barril Distribuidora</strong><br>Confira disponibilidade, entrega e valores finais com nossa equipe.<br>© <span id="year"></span> Barril Distribuidora</footer>
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()"><section class="sheet">
+ <div class="sheethead"><h3>Seu pedido</h3><button class="close" onclick="closeCart()">✕</button></div>
+ <div id="cartlines"></div><div class="total"><span>Total estimado</span><span id="total">R$ 0,00</span></div>
+ <div class="fields"><input id="customer" placeholder="Seu nome" autocomplete="name"><select id="delivery"><option value="">Entrega ou retirada?</option><option>Entrega</option><option>Retirada no local</option></select><input id="address" placeholder="Endereço para entrega (se necessário)"><textarea id="notes" rows="2" placeholder="Observações (opcional)"></textarea></div>
+ <button class="checkout" onclick="sendWhatsApp()">Finalizar pelo WhatsApp</button>
+ <div class="smallnote">Ao tocar no botão, o WhatsApp abrirá com o pedido preenchido. Você ainda precisará tocar em Enviar. O telefone configurado deve ter WhatsApp ativo.</div>
+</section></div>
+<script>
+const WHATSAPP_NUMBER = "556336022300"; // Confirme se este número possui WhatsApp; troque aqui se necessário.
+const categories=["Todos","Cervejas","Refrigerantes","Água","Energéticos","Gelo","Carvão","Petiscos","Outros"];
+const productsData=[
+{id:1,name:"Cerveja lata 350 ml",category:"Cervejas",price:4.50,unit:"unidade",emoji:"🍺"},
+{id:2,name:"Cerveja long neck",category:"Cervejas",price:7.00,unit:"unidade",emoji:"🍻"},
+{id:3,name:"Refrigerante 2 L",category:"Refrigerantes",price:8.00,unit:"unidade",emoji:"🥤"},
+{id:4,name:"Água mineral 1,5 L",category:"Água",price:3.50,unit:"unidade",emoji:"💧"},
+{id:5,name:"Energético 473 ml",category:"Energéticos",price:10.00,unit:"unidade",emoji:"⚡"},
+{id:6,name:"Saco de gelo",category:"Gelo",price:10.00,unit:"saco",emoji:"🧊"},
+{id:7,name:"Saco de carvão",category:"Carvão",price:18.00,unit:"saco",emoji:"🔥"},
+{id:8,name:"Salgadinho",category:"Petiscos",price:6.00,unit:"pacote",emoji:"🥨"},
+{id:9,name:"Copo descartável",category:"Outros",price:5.00,unit:"pacote",emoji:"🥤"}
+];
+let selected="Todos",cart={};
+const money=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+function renderCategories(){document.getElementById("categories").innerHTML=categories.map(c=>`<button class="chip ${c===selected?"active":""}" onclick="selected=${JSON.stringify(c)};renderCategories();renderProducts()">${c}</button>`).join("")}
+function renderProducts(){let q=document.getElementById("search").value.toLowerCase();let arr=productsData.filter(p=>(selected==="Todos"||p.category===selected)&&p.name.toLowerCase().includes(q));document.getElementById("shown").textContent=arr.length+" itens";document.getElementById("products").innerHTML=arr.length?arr.map(p=>`<article class="product"><div class="prodimg">${p.emoji}</div><div class="prodinfo"><div class="category">${p.category}</div><h4>${p.name}</h4><div class="price">${money(p.price)} <span class="unit">/ ${p.unit}</span></div><button class="add" onclick="add(${p.id})">+ Adicionar</button></div></article>`).join(""):`<div class="empty">Nenhum produto encontrado.</div>`}
+function add(id){cart[id]=(cart[id]||0)+1;updateCount()}
+function updateCount(){document.getElementById("cartcount").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function openCart(){document.getElementById("overlay").classList.add("open");renderCart()}
+function closeCart(){document.getElementById("overlay").classList.remove("open")}
+function renderCart(){let items=productsData.filter(p=>cart[p.id]);document.getElementById("cartlines").innerHTML=items.length?items.map(p=>`<div class="cartline"><div><strong>${p.name}</strong><div>${money(p.price)} cada</div></div><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button><strong>${cart[p.id]}</strong><button onclick="changeQty(${p.id},1)">+</button></div></div>`).join(""):`<div class="empty">Seu carrinho está vazio. Adicione produtos para continuar.</div>`;document.getElementById("total").textContent=money(items.reduce((s,p)=>s+p.price*cart[p.id],0))}
+function changeQty(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];updateCount();renderCart()}
+function sendWhatsApp(){let items=productsData.filter(p=>cart[p.id]);if(!items.length){alert("Adicione pelo menos um produto ao pedido.");return}let name=document.getElementById("customer").value.trim();let delivery=document.getElementById("delivery").value;let address=document.getElementById("address").value.trim();if(!name||!delivery){alert("Informe seu nome e escolha entrega ou retirada.");return}let total=items.reduce((s,p)=>s+p.price*cart[p.id],0);let msg=`*Pedido — Barril Distribuidora*%0A%0A`+items.map(p=>`• ${cart[p.id]}x ${p.name} — ${money(p.price*cart[p.id])}`).join("%0A")+`%0A%0A*Total estimado: ${money(total)}*%0ACliente: ${name}%0AOpção: ${delivery}`+(delivery==="Entrega"?`%0AEndereço: ${address||"A combinar"}`:"")+(document.getElementById("notes").value.trim()?`%0AObservações: ${document.getElementById("notes").value.trim()}`:"");window.location.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(decodeURIComponent(msg))}`}
+document.getElementById("year").textContent=new Date().getFullYear();renderCategories();renderProducts();
+</script>
+</body>
+</html>
