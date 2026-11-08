@@ -1,788 +1,454 @@
 
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Barril Distribuidora</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ingrid Nails Studio</title>
+<meta name="description" content="Ingrid Nails Studio - Beleza e delicadeza em cada detalhe. Agende seu horário em Canoas RS.">
 
 <style>
-
-:root {
-
-  --bg:#1b120e; --card:#2c1d15; --brown:#543522;
-
-  --gold:#d8ad69; --text:#fff4e7; --muted:#c6ad96;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-*{box-sizing:border-box}
+html { scroll-behavior: smooth; }
 
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+body {
+  background: #fffafb;
+  color: #49383c;
+}
 
-header{background:linear-gradient(135deg,#25160f,#593820);padding:20px;text-align:center;border-bottom:2px solid var(--gold)}
+header {
+  background: #fff;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f3dce3;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-.logo{font-size:30px;font-weight:900;letter-spacing:4px;color:var(--gold);cursor:pointer}
+.logo {
+  color: #b9788c;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
 
-header p{font-size:12px;letter-spacing:2px;color:#e7cba8}
+.logo span {
+  display: block;
+  color: #bd9a55;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-align: center;
+}
 
-main{width:min(1050px,92%);margin:22px auto}
+nav a {
+  text-decoration: none;
+  color: #75535d;
+  font-size: 13px;
+  margin-left: 12px;
+}
 
-.hero{padding:28px 20px;border-radius:16px;background:linear-gradient(135deg,#593820,#291910);border:1px solid #795538}
+.hero {
+  padding: 85px 8%;
+  text-align: center;
+  background: linear-gradient(135deg,#fff0f4,#fff9fa,#f8e8ec);
+}
 
-h1,h2{color:var(--gold)}
+.hero small {
+  color: #bd9a55;
+  letter-spacing: 4px;
+}
 
-.hero h1{font-size:30px;margin-top:0}
+.hero h1 {
+  font-family: Georgia, serif;
+  color: #ad7184;
+  font-size: 42px;
+  margin: 18px 0;
+}
 
-button{padding:12px 15px;border:0;border-radius:8px;background:var(--gold);color:#24160d;font-weight:bold;cursor:pointer}
+.hero p {
+  color: #795f66;
+  line-height: 1.8;
+  max-width: 450px;
+  margin: auto;
+}
 
-button:disabled{opacity:.45;cursor:not-allowed}
+.btn {
+  display: inline-block;
+  background: #bd8295;
+  color: white;
+  padding: 15px 27px;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-top: 25px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
 
-.secondary{background:var(--brown);color:white;border:1px solid #8b6545}
+section {
+  padding: 65px 7%;
+  text-align: center;
+}
 
-.danger{background:#8c3730;color:white}
+.section-title {
+  color: #b9788c;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
 
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:13px}
+.subtitle {
+  color: #927b81;
+  font-size: 14px;
+  margin-bottom: 35px;
+}
 
-.card,.panel{background:var(--card);border:1px solid #62452f;border-radius:12px;padding:15px;margin-bottom:12px}
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+  gap: 15px;
+}
 
-.product-icon{height:95px;border-radius:8px;background:#40291b;display:grid;place-items:center;font-size:46px}
+.service {
+  background: white;
+  border: 1px solid #f0dce2;
+  border-radius: 15px;
+  padding: 24px 12px;
+  box-shadow: 0 5px 15px #b9788c10;
+}
 
-.price{color:var(--gold);font-size:18px;font-weight:bold}
+.service .symbol {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
 
-small,.muted{color:var(--muted)}
+.service h3 {
+  color: #a86d81;
+  font-size: 15px;
+  margin-bottom: 9px;
+}
 
-input,select,textarea{width:100%;padding:12px;margin:6px 0 13px;border-radius:7px;border:1px solid #76563b;background:#1b120e;color:white;font:inherit}
+.service p {
+  font-size: 12px;
+  color: #967f85;
+}
 
-label{font-size:14px;color:#e9d5bf}
+.gallery {
+  background: #fff1f4;
+}
 
-.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+}
 
-.row button{margin-top:5px}
+.gallery-grid img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 13px;
+}
 
-.section{margin-top:25px}
+.booking {
+  background: white;
+}
 
-.hidden{display:none!important}
+.booking-box {
+  max-width: 500px;
+  margin: auto;
+  padding: 25px;
+  border: 1px solid #f0dce2;
+  border-radius: 20px;
+  text-align: left;
+  box-shadow: 0 5px 25px #b9788c10;
+}
 
-.total{font-size:21px;color:var(--gold);font-weight:bold}
+label {
+  display: block;
+  margin: 15px 0 7px;
+  color: #986879;
+  font-size: 13px;
+}
 
-.cart-line{padding:12px 0;border-bottom:1px solid #62452f}
+input, select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ead4dc;
+  border-radius: 9px;
+  background: #fffafb;
+  color: #49383c;
+  outline: none;
+}
 
-footer{text-align:center;color:var(--muted);padding:25px;font-size:12px}
+input:focus, select:focus {
+  border-color: #bd8295;
+}
 
-.notice{font-size:13px;color:#f1cc8e;line-height:1.5}
+.booking-box button {
+  width: 100%;
+}
 
-@media(min-width:700px){.columns{display:grid;grid-template-columns:1fr 1fr;gap:18px}.hero h1{font-size:38px}}
+.note {
+  font-size: 12px;
+  color: #967f85;
+  margin-top: 15px;
+  line-height: 1.6;
+}
 
+.about {
+  background: #fff2f5;
+}
+
+.about p {
+  max-width: 500px;
+  margin: auto;
+  line-height: 1.8;
+  color: #806a70;
+}
+
+footer {
+  background: #b9788c;
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+  font-size: 13px;
+  line-height: 2;
+}
+
+@media(max-width: 480px) {
+  nav a { font-size: 11px; margin-left: 7px; }
+  .hero h1 { font-size: 34px; }
+}
 </style>
-
 </head>
 
 <body>
 
 <header>
-
-  <div class="logo" id="logo" title="Barril Distribuidora">BARRIL</div>
-
-  <p>DISTRIBUIDORA · BEBIDAS PARA TODOS OS MOMENTOS</p>
-
+  <div class="logo">
+    INGRID
+    <span>NAILS STUDIO</span>
+  </div>
+  <nav>
+    <a href="#servicos">Serviços</a>
+    <a href="#galeria">Fotos</a>
+    <a href="#agendar">Agendar</a>
+  </nav>
 </header>
 
-<main>
+<div class="hero">
+  <small>BELEZA EM CADA DETALHE</small>
+  <h1>Ingrid Nails Studio</h1>
+  <p>
+    Suas unhas merecem um cuidado especial.
+    Realce sua beleza com delicadeza, elegância
+    e muito carinho.
+  </p>
+  <a href="#agendar" class="btn">Agendar meu horário</a>
+</div>
 
-  <section class="hero">
+<section id="servicos">
+  <h2 class="section-title">Nossos serviços</h2>
+  <p class="subtitle">Encontre o cuidado perfeito para suas unhas.</p>
 
-    <h1>Sua bebida, do seu jeito. 🍻</h1>
+  <div class="services">
 
-    <p>Escolha seus produtos, monte seu pedido e informe onde deseja receber.</p>
-
-    <button onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">VER PRODUTOS</button>
-
-  </section>
-
-  <section id="catalogo" class="section">
-
-    <h2>🍺 Nossos produtos</h2>
-
-    <input id="busca" placeholder="Buscar bebida..." oninput="renderProducts()">
-
-    <div id="products" class="products"></div>
-
-  </section>
-
-  <section class="section columns">
-
-    <div class="panel">
-
-      <h2>🛒 Seu carrinho</h2>
-
-      <div id="cart"></div>
-
-      <p>Total: <span id="total" class="total">R$ 0,00</span></p>
-
-      <button onclick="showCheckout()">FINALIZAR PEDIDO</button>
-
+    <div class="service">
+      <div class="symbol">💅</div>
+      <h3>Unhas em gel</h3>
+      <p>Beleza e acabamento delicado.</p>
     </div>
 
-    <div id="checkout" class="panel hidden">
-
-      <h2>📦 Entrega e pagamento</h2>
-
-      <form id="orderForm">
-
-        <label>Nome completo</label>
-
-        <input name="nome" required autocomplete="name" placeholder="Seu nome">
-
-        <label>Telefone com DDD</label>
-
-        <input name="telefone" required type="tel" autocomplete="tel" placeholder="(63) 99999-9999">
-
-        <label>Rua e endereço</label>
-
-        <input name="rua" required autocomplete="street-address" placeholder="Rua, avenida...">
-
-        <div class="row">
-
-          <div style="flex:1;min-width:110px">
-
-            <label>Número</label>
-
-            <input name="numero" required placeholder="Nº">
-
-          </div>
-
-          <div style="flex:2;min-width:140px">
-
-            <label>Bairro</label>
-
-            <input name="bairro" required placeholder="Seu bairro">
-
-          </div>
-
-        </div>
-
-        <label>Complemento (opcional)</label>
-
-        <input name="complemento" placeholder="Casa, referência...">
-
-        <label>Forma de pagamento</label>
-
-        <select name="pagamento" required>
-
-          <option value="">Selecione</option>
-
-          <option>Pix</option>
-
-          <option>Cartão de débito</option>
-
-          <option>Cartão de crédito</option>
-
-          <option>Dinheiro</option>
-
-        </select>
-
-        <label>Observações</label>
-
-        <textarea name="observacao" rows="3" placeholder="Alguma informação para a entrega?"></textarea>
-
-        <p class="notice">A forma de pagamento será confirmada com a distribuidora. Escolher Pix ou cartão aqui não realiza a cobrança automaticamente.</p>
-
-        <button type="submit">ENVIAR PEDIDO PELO WHATSAPP</button>
-
-        <button type="button" class="secondary" onclick="hideCheckout()">VOLTAR</button>
-
-      </form>
-
+    <div class="service">
+      <div class="symbol">✨</div>
+      <h3>Alongamento em gel</h3>
+      <p>Alongamento com elegância.</p>
     </div>
 
-  </section>
+    <div class="service">
+      <div class="symbol">🌸</div>
+      <h3>Banho de gel</h3>
+      <p>Mais cuidado para suas unhas.</p>
+    </div>
 
-  <section id="login" class="panel section hidden">
+    <div class="service">
+      <div class="symbol">💎</div>
+      <h3>Fibra de vidro</h3>
+      <p>Alongamento com fibra.</p>
+    </div>
 
-    <h2>🔐 Acesso administrativo</h2>
+    <div class="service">
+      <div class="symbol">🤍</div>
+      <h3>Manutenção</h3>
+      <p>Cuidado para manter suas unhas.</p>
+    </div>
 
-    <form id="loginForm">
+    <div class="service">
+      <div class="symbol">🎀</div>
+      <h3>Esmaltação em gel</h3>
+      <p>Acabamento bonito e delicado.</p>
+    </div>
 
-      <label>E-mail</label>
+    <div class="service">
+      <div class="symbol">🌷</div>
+      <h3>Decoração</h3>
+      <p>Detalhes especiais para suas unhas.</p>
+    </div>
 
-      <input name="email" type="email" required autocomplete="username">
+  </div>
 
-      <label>Senha</label>
+  <p class="subtitle" style="margin-top:25px">
+    Valores sob consulta pelo WhatsApp.
+  </p>
+</section>
 
-      <input name="senha" type="password" required autocomplete="current-password">
+<section class="gallery" id="galeria">
+  <h2 class="section-title">Galeria de inspirações</h2>
+  <p class="subtitle">Algumas inspirações para seu próximo visual.</p>
 
-      <button type="submit">ENTRAR</button>
+  <div class="gallery-grid">
+    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600" alt="Inspiração de unhas">
+    <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=600" alt="Inspiração de manicure">
+    <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600" alt="Inspiração de nail art">
+    <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=600" alt="Inspiração de unhas decoradas">
+  </div>
+  <p class="note">Fotos ilustrativas. Em breve, trabalhos reais da Ingrid.</p>
+</section>
 
-      <button type="button" class="secondary" onclick="closeLogin()">CANCELAR</button>
+<section class="booking" id="agendar">
+  <h2 class="section-title">Agende seu horário</h2>
+  <p class="subtitle">Será um prazer receber você!</p>
+
+  <div class="booking-box">
+
+    <form id="bookingForm">
+
+      <label>Seu nome</label>
+      <input type="text" id="nome" placeholder="Digite seu nome" required>
+
+      <label>Seu WhatsApp</label>
+      <input type="tel" id="telefone" placeholder="Seu número" required>
+
+      <label>Serviço desejado</label>
+      <select id="servico" required>
+        <option value="">Escolha um serviço</option>
+        <option>Unhas em gel</option>
+        <option>Alongamento em gel</option>
+        <option>Banho de gel</option>
+        <option>Fibra de vidro</option>
+        <option>Manutenção</option>
+        <option>Esmaltação em gel</option>
+        <option>Decoração</option>
+      </select>
+
+      <label>Data desejada</label>
+      <input type="date" id="data" required>
+
+      <label>Horário desejado</label>
+      <select id="horario" required>
+        <option value="">Escolha um horário</option>
+        <option>08:00</option>
+        <option>09:00</option>
+        <option>10:00</option>
+        <option>11:00</option>
+        <option>12:00</option>
+        <option>13:00</option>
+        <option>14:00</option>
+        <option>15:00</option>
+        <option>16:00</option>
+      </select>
+
+      <label>Observações (opcional)</label>
+      <input type="text" id="observacao" placeholder="Alguma informação adicional">
+
+      <button type="submit" class="btn">
+        Solicitar pelo WhatsApp
+      </button>
+
+      <p class="note">
+        Seu horário será confirmado pela Ingrid
+        após o contato pelo WhatsApp.
+      </p>
 
     </form>
+  </div>
+</section>
 
-    <p class="notice">Acesso de demonstração. Antes de publicar, substitua por autenticação segura.</p>
+<section class="about">
+  <h2 class="section-title">Onde estamos</h2>
+  <p>
+    Atendimento realizado exclusivamente no
+    Ingrid Nails Studio, em Canoas – Rio Grande do Sul.
+    <br><br>
+    Todos os dias, das 08h às 17h.
+  </p>
+</section>
 
-  </section>
-
-  <section id="admin" class="section hidden">
-
-    <div class="panel">
-
-      <div class="row" style="justify-content:space-between">
-
-        <h2>⚙️ Painel da Barril</h2>
-
-        <button class="secondary" onclick="logout()">SAIR</button>
-
-      </div>
-
-      <p class="muted">Cadastre produtos, altere preços e controle a disponibilidade.</p>
-
-      <h3 id="formTitle">Adicionar produto</h3>
-
-      <form id="productForm">
-
-        <input name="nome" required placeholder="Nome do produto">
-
-        <div class="row">
-
-          <div style="flex:1;min-width:120px">
-
-            <label>Preço (R$)</label>
-
-            <input name="preco" type="number" min="0.01" step="0.01" required placeholder="0,00">
-
-          </div>
-
-          <div style="flex:1;min-width:120px">
-
-            <label>Estoque</label>
-
-            <input name="estoque" type="number" min="0" step="1" required placeholder="Quantidade">
-
-          </div>
-
-        </div>
-
-        <label>Emoji do produto</label>
-
-        <input name="icone" maxlength="8" placeholder="🍺">
-
-        <div class="row">
-
-          <button type="submit">SALVAR PRODUTO</button>
-
-          <button type="button" class="secondary" onclick="resetProductForm()">CANCELAR EDIÇÃO</button>
-
-        </div>
-
-      </form>
-
-    </div>
-
-    <div class="panel">
-
-      <h2>📋 Gerenciar produtos</h2>
-
-      <div id="adminProducts"></div>
-
-    </div>
-
-    <div class="panel">
-
-      <h2>🧾 Pedidos deste dispositivo</h2>
-
-      <p class="notice">Esta lista é apenas local. Para receber e consultar pedidos de todos os clientes, será necessário conectar um banco de dados.</p>
-
-      <div id="adminOrders"></div>
-
-    </div>
-
-  </section>
-
-</main>
-
-<footer>BARRIL DISTRIBUIDORA · Obrigado pela preferência!</footer>
+<footer>
+  <strong>INGRID NAILS STUDIO</strong>
+  <br>
+  Beleza e delicadeza em cada detalhe.
+  <br>
+  Canoas – RS | Todos os dias, 08h às 17h
+  <br>
+  © 2026 Ingrid Nails Studio
+</footer>
 
 <script>
+const hoje = new Date();
+const dataLocal = new Date(
+  hoje.getTime() - hoje.getTimezoneOffset() * 60000
+).toISOString().split("T")[0];
 
-/*
+document.getElementById("data").min = dataLocal;
 
-  CONFIGURAÇÃO:
-
-  1. Coloque seu número de WhatsApp no formato 55 + DDD + número.
-
-  2. O login abaixo é SOMENTE para testar o layout.
-
-  3. Não publique senhas reais neste arquivo.
-
-*/
-
-const WHATSAPP = "5563999120654";
-
-const DEMO_EMAIL = "bruno2009sales@gmail.com";
-
-const DEMO_PASSWORD = "123456";
-
-const initialProducts = [
-
-  {id:1,nome:"Cerveja",preco:5,estoque:24,icone:"🍺"},
-
-  {id:2,nome:"Refrigerante",preco:7,estoque:20,icone:"🥤"},
-
-  {id:3,nome:"Energético",preco:10,estoque:12,icone:"⚡"},
-
-  {id:4,nome:"Água",preco:3,estoque:30,icone:"💧"}
-
-];
-
-let products = read("barril_products", initialProducts);
-
-let cart = {};
-
-let orders = read("barril_orders", []);
-
-let editId = null;
-
-let logoTaps = 0;
-
-let tapTimer;
-
-let loggedIn = false;
-
-function read(key, fallback) {
-
-  try {
-
-    const data = localStorage.getItem(key);
-
-    return data ? JSON.parse(data) : fallback.map ? fallback.map(x=>({...x})) : fallback;
-
-  } catch { return fallback; }
-
-}
-
-function save() {
-
-  localStorage.setItem("barril_products", JSON.stringify(products));
-
-  localStorage.setItem("barril_orders", JSON.stringify(orders));
-
-}
-
-function money(value) {
-
-  return Number(value).toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
-
-}
-
-function escapeHTML(value) {
-
-  return String(value).replace(/[&<>"']/g, c => ({
-
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-
-  })[c]);
-
-}
-
-function renderProducts() {
-
-  const q = document.getElementById("busca").value.toLowerCase();
-
-  document.getElementById("products").innerHTML = products
-
-    .filter(p=>p.nome.toLowerCase().includes(q))
-
-    .map(p=>`<article class="card">
-
-      <div class="product-icon">${escapeHTML(p.icone||"🍺")}</div>
-
-      <h3>${escapeHTML(p.nome)}</h3>
-
-      <p class="price">${money(p.preco)}</p>
-
-      <small>${p.estoque>0 ? "Disponíveis: "+p.estoque : "Indisponível"}</small>
-
-      <button ${p.estoque<=0?"disabled":""} onclick="addCart(${p.id})">ADICIONAR</button>
-
-    </article>`).join("") || "<p>Nenhum produto encontrado.</p>";
-
-}
-
-function addCart(id) {
-
-  const p = products.find(x=>x.id===id);
-
-  if (!p || (cart[id]||0)>=p.estoque) return alert("Quantidade indisponível.");
-
-  cart[id]=(cart[id]||0)+1;
-
-  renderCart();
-
-}
-
-function changeQty(id,delta) {
-
-  const p=products.find(x=>x.id===id);
-
-  const next=(cart[id]||0)+delta;
-
-  if(next<=0) delete cart[id];
-
-  else if(next<=p.estoque) cart[id]=next;
-
-  else alert("Não há estoque suficiente.");
-
-  renderCart();
-
-}
-
-function renderCart() {
-
-  const entries=Object.entries(cart);
-
-  document.getElementById("cart").innerHTML=entries.length ? entries.map(([id,qty])=>{
-
-    const p=products.find(x=>x.id===Number(id));
-
-    return `<div class="cart-line">
-
-      <b>${escapeHTML(p.nome)}</b> — ${money(p.preco*qty)}
-
-      <div class="row">
-
-        <button class="secondary" onclick="changeQty(${p.id},-1)">−</button>
-
-        <span>${qty}</span>
-
-        <button class="secondary" onclick="changeQty(${p.id},1)">+</button>
-
-        <button class="danger" onclick="delete cart[${p.id}];renderCart()">Remover</button>
-
-      </div></div>`;
-
-  }).join("") : "<p class='muted'>Seu carrinho está vazio.</p>";
-
-  document.getElementById("total").textContent=money(cartTotal());
-
-}
-
-function cartTotal() {
-
-  return Object.entries(cart).reduce((sum,[id,qty])=>{
-
-    const p=products.find(x=>x.id===Number(id));
-
-    return sum+(p?p.preco*qty:0);
-
-  },0);
-
-}
-
-function showCheckout() {
-
-  if(!Object.keys(cart).length) return alert("Adicione pelo menos um produto.");
-
-  document.getElementById("checkout").classList.remove("hidden");
-
-  document.getElementById("checkout").scrollIntoView({behavior:"smooth"});
-
-}
-
-function hideCheckout() {
-
-  document.getElementById("checkout").classList.add("hidden");
-
-}
-
-document.getElementById("orderForm").addEventListener("submit",e=>{
-
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  if(!Object.keys(cart).length) return alert("Seu carrinho está vazio.");
+  const nome = document.getElementById("nome").value.trim();
+  const telefone = document.getElementById("telefone").value.trim();
+  const servico = document.getElementById("servico").value;
+  const data = document.getElementById("data").value;
+  const horario = document.getElementById("horario").value;
+  const observacao = document.getElementById("observacao").value.trim();
 
-  if(!/^\d{12,13}$/.test(WHATSAPP)) {
-
-    return alert("Configure o número de WhatsApp da Barril no código antes de enviar pedidos.");
-
+  if (!nome || !telefone || !servico || !data || !horario) {
+    alert("Preencha todos os campos obrigatórios.");
+    return;
   }
 
-  const f=new FormData(e.target);
+  const dataEscolhida = new Date(data + "T12:00:00");
+  const dataFormatada = dataEscolhida.toLocaleDateString("pt-BR");
 
-  const items=Object.entries(cart).map(([id,qty])=>{
+  const mensagem =
+`Olá, Ingrid! 💗 Gostaria de solicitar um agendamento.
 
-    const p=products.find(x=>x.id===Number(id));
+Nome: ${nome}
+Meu WhatsApp: ${telefone}
+Serviço: ${servico}
+Data desejada: ${dataFormatada}
+Horário desejado: ${horario}
+Observações: ${observacao || "Nenhuma"}
 
-    return `${qty}x ${p.nome} — ${money(p.preco*qty)}`;
+Aguardo a confirmação. Obrigada!`;
 
-  });
+  const numero = "5551996450572";
 
-  const order={
+  const url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
 
-    id:Date.now(),
-
-    data:new Date().toLocaleString("pt-BR"),
-
-    cliente:f.get("nome"),
-
-    total:cartTotal(),
-
-    itens:items,
-
-    pagamento:f.get("pagamento"),
-
-    status:"Novo"
-
-  };
-
-  orders.unshift(order);
-
-  save();
-
-  const msg=[
-
-    "*NOVO PEDIDO — BARRIL DISTRIBUIDORA*",
-
-    "",
-
-    `*Nome:* ${f.get("nome")}`,
-
-    `*Telefone:* ${f.get("telefone")}`,
-
-    `*Endereço:* ${f.get("rua")}, ${f.get("numero")} — ${f.get("bairro")}`,
-
-    `*Complemento:* ${f.get("complemento")||"Não informado"}`,
-
-    "",
-
-    "*Produtos:*",...items,
-
-    `*TOTAL: ${money(order.total)}*`,
-
-    `*Pagamento escolhido:* ${f.get("pagamento")}`,
-
-    `*Observações:* ${f.get("observacao")||"Nenhuma"}`,
-
-    "",
-
-    "Aguardando confirmação do pedido."
-
-  ].join("\n");
-
-  window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank");
-
-  cart={};
-
-  renderCart();
-
-  e.target.reset();
-
-  hideCheckout();
-
-  renderAdmin();
-
+  window.open(url, "_blank");
 });
-
-document.getElementById("logo").addEventListener("click",()=>{
-
-  logoTaps++;
-
-  clearTimeout(tapTimer);
-
-  tapTimer=setTimeout(()=>logoTaps=0,1800);
-
-  if(logoTaps>=5) {
-
-    logoTaps=0;
-
-    if(loggedIn) openAdmin();
-
-    else {
-
-      document.getElementById("login").classList.remove("hidden");
-
-      document.getElementById("login").scrollIntoView({behavior:"smooth"});
-
-    }
-
-  }
-
-});
-
-function closeLogin(){document.getElementById("login").classList.add("hidden")}
-
-document.getElementById("loginForm").addEventListener("submit",e=>{
-
-  e.preventDefault();
-
-  const f=new FormData(e.target);
-
-  if(f.get("email")===DEMO_EMAIL && f.get("senha")===DEMO_PASSWORD) {
-
-    loggedIn=true;
-
-    closeLogin();
-
-    openAdmin();
-
-    e.target.reset();
-
-  } else alert("Dados incorretos. Confira o login de demonstração no código.");
-
-});
-
-function openAdmin(){
-
-  document.getElementById("admin").classList.remove("hidden");
-
-  renderAdmin();
-
-  document.getElementById("admin").scrollIntoView({behavior:"smooth"});
-
-}
-
-function logout(){
-
-  loggedIn=false;
-
-  document.getElementById("admin").classList.add("hidden");
-
-}
-
-function renderAdmin(){
-
-  if(!loggedIn)return;
-
-  document.getElementById("adminProducts").innerHTML=products.map(p=>
-
-    `<div class="cart-line"><b>${escapeHTML(p.icone)} ${escapeHTML(p.nome)}</b>
-
-    <p>${money(p.preco)} · Estoque: ${p.estoque}</p>
-
-    <div class="row">
-
-    <button onclick="editProduct(${p.id})">Editar</button>
-
-    <button class="danger" onclick="removeProduct(${p.id})">Excluir</button>
-
-    </div></div>`).join("")||"<p>Nenhum produto cadastrado.</p>";
-
-  document.getElementById("adminOrders").innerHTML=orders.map(o=>
-
-    `<div class="cart-line"><b>Pedido ${o.id}</b> · ${escapeHTML(o.cliente)}
-
-    <p>${escapeHTML(o.data)} · ${money(o.total)}</p>
-
-    <small>${o.itens.map(escapeHTML).join("<br>")}</small></div>`
-
-  ).join("")||"<p class='muted'>Nenhum pedido neste dispositivo.</p>";
-
-}
-
-document.getElementById("productForm").addEventListener("submit",e=>{
-
-  e.preventDefault();
-
-  if(!loggedIn)return;
-
-  const f=new FormData(e.target);
-
-  const nome=String(f.get("nome")).trim();
-
-  const preco=Number(f.get("preco"));
-
-  const estoque=Number(f.get("estoque"));
-
-  const icone=String(f.get("icone")||"🍺").trim();
-
-  if(!nome||!Number.isFinite(preco)||preco<=0||!Number.isInteger(estoque)||estoque<0)
-
-    return alert("Confira nome, preço e estoque.");
-
-  if(editId!==null) {
-
-    products=products.map(p=>p.id===editId?{...p,nome,preco,estoque,icone}:p);
-
-  } else {
-
-    products.push({id:Date.now(),nome,preco,estoque,icone});
-
-  }
-
-  save();
-
-  resetProductForm();
-
-  renderProducts();
-
-  renderAdmin();
-
-});
-
-function editProduct(id){
-
-  const p=products.find(x=>x.id===id);
-
-  if(!p)return;
-
-  editId=id;
-
-  const f=document.getElementById("productForm");
-
-  f.elements.nome.value=p.nome;
-
-  f.elements.preco.value=p.preco;
-
-  f.elements.estoque.value=p.estoque;
-
-  f.elements.icone.value=p.icone;
-
-  document.getElementById("formTitle").textContent="Editar produto";
-
-  f.scrollIntoView({behavior:"smooth"});
-
-}
-
-function resetProductForm(){
-
-  editId=null;
-
-  document.getElementById("productForm").reset();
-
-  document.getElementById("formTitle").textContent="Adicionar produto";
-
-}
-
-function removeProduct(id){
-
-  if(!loggedIn)return;
-
-  if(!confirm("Deseja excluir este produto?"))return;
-
-  products=products.filter(p=>p.id!==id);
-
-  delete cart[id];
-
-  save();
-
-  renderProducts();
-
-  renderCart();
-
-  renderAdmin();
-
-}
-
-renderProducts();
-
-renderCart();
-
 </script>
 
 </body>
-
 </html>
